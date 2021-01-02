@@ -1,7 +1,44 @@
-.App {
-  text-align: center;
+* {
+  box-sizing: border-box;
 }
 
+.App {
+  text-align: center;
+  border: 15px solid red;
+  height: 480px;
+  padding: 20px;
+  width: 100%;
+  margin: 50px auto 0px;
+}
+
+.textStyle {
+  color: black;
+  font-weight: 700;
+  font-size: 16px;
+}
+@media (min-width: 700px) {
+  .App {
+    min-height: 350px;
+    width: 80%;
+  }
+}
+@media (min-width: 1024px) {
+  .App {
+    text-align: center;
+    border: 25px solid red;
+    min-height: 500px;
+    padding: 50px;
+    width: 100%;
+    max-width: 1024px;
+    margin: 50px auto 0px;
+  }
+
+  .textStyle {
+    color: black;
+    font-weight: 700;
+    font-size: 16px;
+  }
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;

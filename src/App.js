@@ -1,26 +1,59 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import "./App.css";
+import Home from "./pages/Home";
+import List from "./pages/List";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const LOCALSTORAGE_KEY = "ynl-data";
+
+function getInitialState() {
+  const initialState = localStorage.getItem(LOCALSTORAGE_KEY);
+  if (initialState === null) {
+    return [];
+  } else {
+    return JSON.parse(initialState);
+  }
 }
 
-export default App;
+// const initialState = [
+//   {
+//     id: 1,
+//     name: "shopping List",
+//     items: [
+//       { id: 1, text: "cinnamon", checked: false },
+//       { id: 2, text: "ORANGE", checked: false },
+//     ],
+//   },
+// ];
+
+export default function App() {
+  const [lists, setLists] = useState(getInitialState());
+
+  function handleSetLists(updatedLists) {
+    setLists(updatedLists);
+    localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(updatedLists));
+  }
+
+  return (
+    <Router>
+      <div>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <Switch>
+        <Route path="/list/:id">
+          <List lists={lists} setLists={handleSetLists} />
+        </Route>
+
+        <Route exact path="/">
+          <Home lists={lists} setLists={handleSetLists} />
+        </Route>
+      </Switch>
+    </Router>
+  );
+}
