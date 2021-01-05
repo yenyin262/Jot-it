@@ -11,6 +11,7 @@ function getInitialState() {
   if (initialState === null) {
     return [];
   } else {
+    // convert from string to JSON object
     return JSON.parse(initialState);
   }
 }

@@ -12,7 +12,7 @@ const FirstPage = ({ list, items, onAddStep, onChecked, onPlay, onDelete }) => {
   return (
     <div className={styles.container}>
       <div className={styles.slideshow}>
-        <div class="textClick">Click </div>
+        <div className="textClick">Click </div>
         <button className={styles.playbtn} onClick={onPlay}>
           &#x25BA;
         </button>{" "}
@@ -26,7 +26,7 @@ const FirstPage = ({ list, items, onAddStep, onChecked, onPlay, onDelete }) => {
         {items.length > 0 ? (
           <div className={styles.listContent}>
             {items.map((el, index) => (
-              <div className={styles.itemList}>
+              <div className={styles.itemList} key={el.id}>
                 <input
                   type="checkbox"
                   checked={el.checked}

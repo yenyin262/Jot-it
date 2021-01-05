@@ -1,36 +1,41 @@
+import { nanoid } from "nanoid";
 import React, { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Redirect } from "react-router-dom";
 import "../App.css";
 import FirstPage from "../components/FirstPage";
 import SecondPage from "../components/SecondPage";
 
+// prop lists passed from App.js - being the key that holds the initialState value
+//  this functions finds the first object that matches ID
 function getCurrentList(lists, id) {
   return lists.find((state) => {
     return state.id == id;
   });
 }
 
-function getUpdatedLists(prevLists, list) {
-  return prevLists.map((state) => {
-    if (state.id === list.id) {
-      return list;
+// getting update of the lists
+function getUpdatedLists(prevLists, newList) {
+  return prevLists.map((oldList) => {
+    if (oldList.id === newList.id) {
+      return newList;
     }
-    return state;
+    return oldList;
   });
 }
 
+// creating List component
 function List({ lists, setLists }) {
+  // for routing
   let { id } = useParams();
 
-  const list = lists.find((list) => {
-    return list.id == id;
-  });
+  const list = React.useMemo(() => {
+    return lists.find((list) => list.id == id);
+  }, [lists]);
 
-  // 1. create receipesteps state to pass to firstPage
-  const [items, setItems] = React.useState(list.items);
+  const [items, setItems] = React.useState([]);
 
   useEffect(() => {
-    setItems(list.items);
+    setItems(!list ? [] : list.items);
   }, [list]);
 
   useEffect(() => {
@@ -57,94 +62,20 @@ function List({ lists, setLists }) {
     setCurrent(null);
     setAllDone(false);
     setPlay(false);
-    function updateState(stateId) {
-      // refers to an object
-      let result = lists.find((state) => {
-        return state.id == stateId;
-      });
 
-      let { items } = result;
+    const currentList = getCurrentList(lists, list.id);
 
-      //   let updateItem = [...items, item];
-      // update object with new item
-      // item being argument of the functions
-      let newResult = {
-        ...result,
-        items: items.map((item) => {
-          return { ...item, checked: !item.checked };
-        }),
-      };
+    const updateList = {
+      ...currentList,
+      items: currentList.items.map((item) => {
+        return { ...item, checked: !item.checked };
+      }),
+    };
 
-      return lists.map((state) => {
-        if (state.id !== newResult.id) {
-          return state;
-        }
-        return newResult;
-      });
-    }
+    setLists(getUpdatedLists(lists, updateList));
+    //////////////////////////
 
-    setLists(updateState(list.id));
-  };
-
-  //4. A function to add another list
-  const handleAddNewStep = (text) => {
-    function updateState(stateId, item) {
-      // refers to an object
-      let result = lists.find((state) => {
-        return state.id == stateId;
-      });
-
-      let { items } = result;
-
-      //   let updateItem = [...items, item];
-      // update object with new item
-      // item being argument of the functions
-      let newResult = { ...result, items: [...items, item] };
-
-      return lists.map((state) => {
-        if (state.id !== newResult.id) {
-          return state;
-        }
-        return newResult;
-      });
-    }
-
-    setLists(updateState(list.id, { text: text, checked: false }));
-  };
-
-  //5. A  function to delete
-  const handleDelete = (index) => {
-    function updateState(stateId) {
-      // refers to an object
-      let result = lists.find((state) => {
-        return state.id == stateId;
-      });
-
-      //   let updateItem = [...items, item];
-      // update object with new item
-      // item being argument of the functions
-
-      let newResult = {
-        ...result,
-        items: items.filter((item, id) => id !== index),
-      };
-
-      return lists.map((state) => {
-        if (state.id !== newResult.id) {
-          return state;
-        }
-        return newResult;
-      });
-    }
-
-    setLists(updateState(list.id));
-    // setItems(result);
-    // setLastUnchecked(items);
-  };
-
-  //6. sets new value when checked
-  const handleCheckedBox = (item, index) => {
-    // function updateState(stateId, index) {
+    // function updateState(stateId) {
     //   // refers to an object
     //   let result = lists.find((state) => {
     //     return state.id == stateId;
@@ -152,20 +83,15 @@ function List({ lists, setLists }) {
 
     //   let { items } = result;
 
-    //     let updateItem = [...items, item];
+    //   //   let updateItem = [...items, item];
     //   // update object with new item
     //   // item being argument of the functions
     //   let newResult = {
     //     ...result,
-    //     items: items.map((item, idx) => {
-    //       if (idx !== index) {
-    //         return item;
-    //       }
+    //     items: items.map((item) => {
     //       return { ...item, checked: !item.checked };
     //     }),
     //   };
-
-    //   console.log(newResult);
 
     //   return lists.map((state) => {
     //     if (state.id !== newResult.id) {
@@ -175,6 +101,57 @@ function List({ lists, setLists }) {
     //   });
     // }
 
+    // setLists(updateState(list.id));
+  };
+
+  //4. A function to add another list
+  const handleAddNewStep = (text) => {
+    const currentList = getCurrentList(lists, list.id);
+
+    const updatedList = {
+      ...currentList,
+      items: [
+        ...currentList.items,
+        { id: nanoid(), text: text, checked: false },
+      ],
+    };
+
+    setLists(getUpdatedLists(lists, updatedList));
+
+    // function updateState(stateId, item) {
+    //   // refers to an object
+    //   let result = lists.find((state) => {
+    //     return state.id == stateId;
+    //   });
+
+    //   let { items } = result;
+
+    //   let newResult = { ...result, items: [...items, item] };
+
+    //   return lists.map((state) => {
+    //     if (state.id !== newResult.id) {
+    //       return state;
+    //     }
+    //     return newResult;
+    //   });
+    // }
+
+    // setLists(updateState(list.id, { text: text, checked: false }));
+  };
+
+  //5. A  function to delete
+  const handleDelete = (index) => {
+    const currentList = getCurrentList(lists, list.id);
+
+    const updatedList = {
+      ...currentList,
+      items: items.filter((item, id) => id !== index),
+    };
+    setLists(getUpdatedLists(lists, updatedList));
+  };
+
+  //6. sets new value when checked
+  const handleCheckedBox = (item, index) => {
     const currentList = getCurrentList(lists, list.id);
     const updatedList = {
       ...currentList,
@@ -215,6 +192,10 @@ function List({ lists, setLists }) {
       }
     }
   };
+  if (!list) {
+    return <Redirect to="/" />;
+  }
+
   // when prop use name of prop "on"
   // when naming functions use "Handle"
   return (
@@ -233,7 +214,6 @@ function List({ lists, setLists }) {
           onDelete={handleDelete}
         />
       )}
-      {/* {play && current === null(<div>Please add someting to your list </div>)} */}
       {play && current !== null && !allDone && (
         <SecondPage
           onChecked={handleCheckedBox}
