@@ -1,14 +1,8 @@
 import React from "react";
-import styles from "./firstpage.module.scss";
-import Form from "./Form";
+import styles from "./style.module.scss";
+import Form from "../Form/Form";
 
-const FirstPage = ({ list, items, onAddStep, onChecked, onPlay, onDelete }) => {
-  // const handleRemove = () => {
-  //   if (text) {
-  //     onDelete(text);
-  //   }
-  // };
-
+const ListView = ({ list, items, onAddStep, onChecked, onPlay, onDelete }) => {
   return (
     <div className={styles.container}>
       <div className={styles.slideshow}>
@@ -20,8 +14,8 @@ const FirstPage = ({ list, items, onAddStep, onChecked, onPlay, onDelete }) => {
       </div>
 
       <div className={styles.container_reciepe}>
-        <Form label="add tasks" onAddStep={onAddStep} />
-        <div className={styles.listContainer}>{list.name}'s list</div>
+        <Form placeholder="add tasks" onAddStep={onAddStep} />
+        <div className={styles.listContainer}>{list.name} list</div>
         {/* check receipes length if it is empty show no content */}
         {items.length > 0 ? (
           <div className={styles.listContent}>
@@ -46,4 +40,4 @@ const FirstPage = ({ list, items, onAddStep, onChecked, onPlay, onDelete }) => {
     </div>
   );
 };
-export default FirstPage;
+export default ListView;

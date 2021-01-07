@@ -1,0 +1,106 @@
+.homeContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.block_title {
+  font-size: 1.5rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+.btnContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
+}
+.addbtn {
+  background-color: #ff8928;
+  color: black;
+  font-weight: 700;
+  font-size: 2rem;
+  padding: 5px;
+  border-radius: 5px;
+  width: 50px;
+}
+
+.mainContainer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  padding: 30px;
+}
+.listContainer {
+  // background-color:#9DC88D;
+
+  // font-size: 1.5rem;
+  // margin: 25px 30px 0px;
+  // padding: 40px;
+  // border-radius: 25px;
+  // width: fit-content
+
+  font-size: 1.5rem;
+  margin: 0px 0 10px;
+  padding: 20px;
+  border-radius: 25px;
+  width: 100%;
+  position: relative;
+  max-width: 400px;
+  text-align: center;
+}
+
+.listContainer {
+  // &:nth-child(1){
+  //     background-color: 	#552583
+  // }
+
+  //  &:nth-child(even) {
+  //     background-color: #ff414e;
+  // }
+
+  a {
+    color: white;
+  }
+}
+
+div.listContainer:nth-child(3n + 1) {
+  background-color: #542581;
+}
+
+div.listContainer:nth-child(3n + 2) {
+  background-color: #ff414e;
+}
+
+div.listContainer:nth-child(3n + 3) {
+  background-color: #279279;
+}
+
+.listLink,
+.listLink:visited {
+  text-decoration: none;
+}
+
+.btn {
+  // height: 25px;
+  // width: 25px;
+  // background-color: black;
+  // color: white;
+  // border-radius: 50%;
+  // padding: 5px;
+  // z-index: 1;
+  // position: absolute;
+  // right: 40px;
+  height: 25px;
+  width: 25px;
+  background-color: black;
+  color: white;
+  border-radius: 50%;
+  padding: 5px;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translate(50%, -50%);
+  font-weight: bold;
+  border: none;
+}

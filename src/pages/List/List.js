@@ -1,9 +1,13 @@
 import { nanoid } from "nanoid";
 import React, { useEffect } from "react";
 import { useParams, Redirect } from "react-router-dom";
-import "../App.css";
-import FirstPage from "../components/FirstPage";
-import SecondPage from "../components/SecondPage";
+import "../../App.css";
+import ListView from "../../components/ListView/ListView";
+import PlayView from "../../components/PlayView/PlayView";
+
+// const INITIAL = "init";
+// const PLAYING = "playing";
+// const ALL_DONE = "all-done";
 
 // prop lists passed from App.js - being the key that holds the initialState value
 //  this functions finds the first object that matches ID
@@ -73,35 +77,6 @@ function List({ lists, setLists }) {
     };
 
     setLists(getUpdatedLists(lists, updateList));
-    //////////////////////////
-
-    // function updateState(stateId) {
-    //   // refers to an object
-    //   let result = lists.find((state) => {
-    //     return state.id == stateId;
-    //   });
-
-    //   let { items } = result;
-
-    //   //   let updateItem = [...items, item];
-    //   // update object with new item
-    //   // item being argument of the functions
-    //   let newResult = {
-    //     ...result,
-    //     items: items.map((item) => {
-    //       return { ...item, checked: !item.checked };
-    //     }),
-    //   };
-
-    //   return lists.map((state) => {
-    //     if (state.id !== newResult.id) {
-    //       return state;
-    //     }
-    //     return newResult;
-    //   });
-    // }
-
-    // setLists(updateState(list.id));
   };
 
   //4. A function to add another list
@@ -117,26 +92,6 @@ function List({ lists, setLists }) {
     };
 
     setLists(getUpdatedLists(lists, updatedList));
-
-    // function updateState(stateId, item) {
-    //   // refers to an object
-    //   let result = lists.find((state) => {
-    //     return state.id == stateId;
-    //   });
-
-    //   let { items } = result;
-
-    //   let newResult = { ...result, items: [...items, item] };
-
-    //   return lists.map((state) => {
-    //     if (state.id !== newResult.id) {
-    //       return state;
-    //     }
-    //     return newResult;
-    //   });
-    // }
-
-    // setLists(updateState(list.id, { text: text, checked: false }));
   };
 
   //5. A  function to delete
@@ -185,6 +140,7 @@ function List({ lists, setLists }) {
       // -1 = nothing unchecked or everything checked
       if (index === -1) {
         setCurrent(null);
+        // setPageState(ALL_DONE)
         setAllDone(true);
         setPlay(false);
       } else {
@@ -200,11 +156,11 @@ function List({ lists, setLists }) {
   // when naming functions use "Handle"
   return (
     <div className="App">
-      {/* <pre>{JSON.stringify(items)}</pre> */}
-      {/* <div>this is page {id}</div> */}
       <div>{message}</div>
+
+      {/* {pageState === INITIAL && ( */}
       {!play && !allDone && (
-        <FirstPage
+        <ListView
           // prop=value
           list={list}
           items={items}
@@ -215,7 +171,7 @@ function List({ lists, setLists }) {
         />
       )}
       {play && current !== null && !allDone && (
-        <SecondPage
+        <PlayView
           onChecked={handleCheckedBox}
           el={items[current]}
           index={current}

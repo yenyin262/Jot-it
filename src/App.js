@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import "./App.css";
-import Home from "./pages/Home";
-import List from "./pages/List";
+import Home from "./pages/Home/Home";
+import List from "./pages/List/List";
+
+import { FaHome } from "react-icons/fa";
 
 const LOCALSTORAGE_KEY = "ynl-data";
 
@@ -37,12 +39,12 @@ export default function App() {
 
   return (
     <Router>
-      <div>
+      <div className="homeContainer">
         <nav>
           <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
+            <Link to="/">
+              <FaHome size="3em" color="black" />
+            </Link>
           </ul>
         </nav>
       </div>

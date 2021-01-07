@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import styles from "./firstpage.module.scss";
+import styles from "./style.module.scss";
 
-export default function Form({ onAddStep }) {
+export default function Form({ onAddStep, placeholder }) {
   const [text, setText] = useState("");
 
   const handleAdd = (event) => {
@@ -13,17 +13,17 @@ export default function Form({ onAddStep }) {
   };
 
   return (
-    <div>
+    <div className={styles.formContainer}>
       <form onSubmit={handleAdd}>
         <input
           onChange={(e) => setText(e.target.value)}
           value={text}
           type="text"
           className={styles.textStyle}
-          // placeholder="Add tasks"
+          placeholder={placeholder}
         />
 
-        <button className={styles.addbtn}>add</button>
+        <button className={styles.addbtn}> add </button>
       </form>
     </div>
   );

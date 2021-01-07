@@ -1,0 +1,35 @@
+.formContainer { 
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+
+.textStyle {
+    height: 20px;
+    border-color: black;
+    border: solid;
+    margin-top: 20px;
+    padding: 15px;
+}
+
+.addbtn {
+    background-color: red;
+    color: black;
+    font-weight: 700;
+    font-size: 16px;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+
+
+
+@media (min-width:1024px) {
+    
+
+    .textStyle {
+        margin-top: 50px;
+    }
+
+}

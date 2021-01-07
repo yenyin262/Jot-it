@@ -17,25 +17,7 @@
     margin-bottom: 50px;
 }
 
-.addbtn {
-    background-color: red;
-    color: black;
-    font-weight: 700;
-    font-size: 16px;
-    margin-left: 20px;
-    margin-top: 20px;
-}
 
-
-// .addbtn { 
-//     // background-color: red; 
-//     // color: black;
-//     // font-weight: 700;
-//     // font-size:16px;
-//     // margin-left:20px;
-
-// }
-//}
 .playbtn {
     background-color: red;
     width: 50px;
@@ -45,18 +27,29 @@
 
 .listContainer {
 
-    margin-top: 20px;
-    font-size: 28px;
-    font-weight: bold;
+    // margin-top: 20px;
+    // font-size: 28px;
+    // font-weight: bold;
+    font-size: 1.5rem;
+    margin: 25px 30px 0px;
+    padding: 20px;
+    border-radius: 25px;
+    width: 100%;
+    position: relative;
+    max-width: 400px;
+
 }
 
 .btn {
-    background-color: DodgerBlue;
+    background-color: #ff8928;
     border: none;
     color: white;
     font-size: 16px;
     cursor: pointer;
 
+
+
+   
   }
 
   .itemList { 
@@ -74,10 +67,10 @@
     text-align: justify;
 }
 
-.homeContainer { 
-    display:flex;
-    flex-direction: column;
-}
+// .homeContainer { 
+//     display:flex;
+//     flex-direction: column;
+// }
 
 @media (min-width:1024px) {
     .slideshow {
