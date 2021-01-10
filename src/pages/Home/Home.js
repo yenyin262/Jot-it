@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Form from "../../components/Form/Form";
 import styles from "./style.module.scss";
-import List from "../List/List";
 import { nanoid } from "nanoid";
 
 export default function Home({ lists, setLists }) {

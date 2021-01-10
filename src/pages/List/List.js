@@ -1,5 +1,5 @@
 import { nanoid } from "nanoid";
-import React, { useEffect } from "react";
+import React, { useEffect, useCallback } from "react";
 import { useParams, Redirect } from "react-router-dom";
 import "../../App.css";
 import AllDone from "../../components/AllDone";
@@ -13,8 +13,14 @@ const PLAYING = "playing";
 const ALL_DONE = "all-done";
 
 // function getBgColor(index) {
-//   if (3 * index + 1) {
-//     // formula
+//   if (3 * index + 1 === index + 1) {
+//     console.log(1);
+//   } else if (3 * index + 2 === index + 1) {
+//     console.log(2);
+//   } else if (3 * index + 3 === index + 1) {
+//     console.log(3);
+//   } else {
+//     console.log(index, "not working");
 //   }
 // }
 
@@ -22,7 +28,7 @@ const ALL_DONE = "all-done";
 //  this functions finds the first object that matches ID
 function getCurrentList(lists, id) {
   return lists.find((state) => {
-    return state.id == id;
+    return state.id === id;
   });
 }
 
@@ -42,16 +48,38 @@ function List({ lists, setLists }) {
   let { id } = useParams();
 
   const [list, index] = React.useMemo(() => {
-    const idx = lists.findIndex((list) => list.id == id);
+    const idx = lists.findIndex((list) => list.id === id);
     const val = lists[idx];
+
     return [val, idx];
-  }, [lists]);
+  }, [lists, id]);
 
   const [items, setItems] = React.useState([]);
 
   useEffect(() => {
     setItems(!list ? [] : list.items);
-  }, [list]);
+    // getBgColor(index);
+  }, [list, index]);
+
+  // check if thats the last unchecked item
+  // in order to reset lists and show all done!
+  const setLastUnchecked = useCallback(
+    (newItems) => {
+      if (items.length > 0) {
+        const index = newItems.findIndex((el) => !el.checked);
+        // -1 = nothing unchecked or everything checked
+        if (index === -1) {
+          setCurrent(null);
+          setPageState(ALL_DONE);
+          // setAllDone(true);
+          // setPlay(false);
+        } else {
+          setCurrent(index);
+        }
+      }
+    },
+    [items.length]
+  );
 
   useEffect(() => {
     setLastUnchecked(items);
@@ -59,7 +87,7 @@ function List({ lists, setLists }) {
     if (items.length > 0) {
       setMessage(null);
     }
-  }, [items]);
+  }, [items, setLastUnchecked]);
 
   // 2. create current state to pass to first page and show current
   const [current, setCurrent] = React.useState(null);
@@ -72,7 +100,7 @@ function List({ lists, setLists }) {
 
   const [message, setMessage] = React.useState("");
 
-  const [pageState, setPageState] = React.useState(PLAYING);
+  const [pageState, setPageState] = React.useState(INITIAL);
 
   // resetList is a function to resetList - it resets the initial state
   const resetList = () => {
@@ -150,22 +178,6 @@ function List({ lists, setLists }) {
     }
   };
 
-  // check if thats the last unchecked item
-  // in order to reset lists and show all done!
-  const setLastUnchecked = (newItems) => {
-    if (items.length > 0) {
-      const index = newItems.findIndex((el) => !el.checked);
-      // -1 = nothing unchecked or everything checked
-      if (index === -1) {
-        setCurrent(null);
-        setPageState(ALL_DONE);
-        // setAllDone(true);
-        // setPlay(false);
-      } else {
-        setCurrent(index);
-      }
-    }
-  };
   if (!list) {
     return <Redirect to="/" />;
   }
