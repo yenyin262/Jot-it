@@ -2,12 +2,21 @@ import { nanoid } from "nanoid";
 import React, { useEffect } from "react";
 import { useParams, Redirect } from "react-router-dom";
 import "../../App.css";
+import AllDone from "../../components/AllDone";
 import ListView from "../../components/ListView/ListView";
 import PlayView from "../../components/PlayView/PlayView";
 
-// const INITIAL = "init";
-// const PLAYING = "playing";
-// const ALL_DONE = "all-done";
+import styles from "./style.module.scss";
+
+const INITIAL = "init";
+const PLAYING = "playing";
+const ALL_DONE = "all-done";
+
+// function getBgColor(index) {
+//   if (3 * index + 1) {
+//     // formula
+//   }
+// }
 
 // prop lists passed from App.js - being the key that holds the initialState value
 //  this functions finds the first object that matches ID
@@ -32,8 +41,10 @@ function List({ lists, setLists }) {
   // for routing
   let { id } = useParams();
 
-  const list = React.useMemo(() => {
-    return lists.find((list) => list.id == id);
+  const [list, index] = React.useMemo(() => {
+    const idx = lists.findIndex((list) => list.id == id);
+    const val = lists[idx];
+    return [val, idx];
   }, [lists]);
 
   const [items, setItems] = React.useState([]);
@@ -54,18 +65,22 @@ function List({ lists, setLists }) {
   const [current, setCurrent] = React.useState(null);
 
   //3. create alldone as state to show list done
-  const [allDone, setAllDone] = React.useState(false);
+  // const [allDone, setAllDone] = React.useState(false);
 
   //4. create play state to show second page slideshow when play btn clicked
-  const [play, setPlay] = React.useState(false);
+  // const [play, setPlay] = React.useState(false);
 
   const [message, setMessage] = React.useState("");
+
+  const [pageState, setPageState] = React.useState(PLAYING);
 
   // resetList is a function to resetList - it resets the initial state
   const resetList = () => {
     setCurrent(null);
-    setAllDone(false);
-    setPlay(false);
+    // setAllDone(false);
+    // setPlay(false);
+
+    setPageState(INITIAL);
 
     const currentList = getCurrentList(lists, list.id);
 
@@ -126,9 +141,12 @@ function List({ lists, setLists }) {
     setLastUnchecked(items);
 
     if (items.length > 0) {
-      setPlay(true);
+      // setPlay(true);
+      setPageState(PLAYING);
     } else {
-      setMessage("Please add something to your list before clicking play");
+      setMessage(
+        alert("Please add something to your list before clicking play")
+      );
     }
   };
 
@@ -140,9 +158,9 @@ function List({ lists, setLists }) {
       // -1 = nothing unchecked or everything checked
       if (index === -1) {
         setCurrent(null);
-        // setPageState(ALL_DONE)
-        setAllDone(true);
-        setPlay(false);
+        setPageState(ALL_DONE);
+        // setAllDone(true);
+        // setPlay(false);
       } else {
         setCurrent(index);
       }
@@ -156,10 +174,10 @@ function List({ lists, setLists }) {
   // when naming functions use "Handle"
   return (
     <div className="App">
-      <div>{message}</div>
+      <div className={styles.showMessage}>{message}</div>
 
-      {/* {pageState === INITIAL && ( */}
-      {!play && !allDone && (
+      {/* {!play && !allDone && ( */}
+      {pageState === INITIAL && (
         <ListView
           // prop=value
           list={list}
@@ -170,21 +188,16 @@ function List({ lists, setLists }) {
           onDelete={handleDelete}
         />
       )}
-      {play && current !== null && !allDone && (
+      {pageState === PLAYING && current !== null && (
+        // {play && current !== null && !allDone && (
         <PlayView
           onChecked={handleCheckedBox}
           el={items[current]}
           index={current}
         />
       )}
-      {allDone && (
-        <div className="textStyle">
-          All Done!{" "}
-          <div class="returnLink">
-            <button onClick={resetList}>Return home </button>
-          </div>
-        </div>
-      )}
+
+      {pageState === ALL_DONE && <AllDone onClick={resetList} />}
     </div>
   );
 }

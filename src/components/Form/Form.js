@@ -14,7 +14,7 @@ export default function Form({ onAddStep, placeholder }) {
 
   return (
     <div className={styles.formContainer}>
-      <form onSubmit={handleAdd}>
+      <form className={styles.form} onSubmit={handleAdd}>
         <input
           onChange={(e) => setText(e.target.value)}
           value={text}

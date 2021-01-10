@@ -1,15 +1,30 @@
-.container { 
-    // border: 50px solid red;
-    // height: 350px;
-    // padding: 100px;
-    // width: 50%;
-    // margin: 50px auto 0px;
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 
-.results  { 
+  .inputContainer {
     color: black;
     font-weight: 700;
-    font-size:16px;
-    margin-left:20px;
-    }
-}
+    font-size: 16px;
+  }
+  .input {
+    width: 50px;
+    height: 50px;
+    margin: 0 auto;
+    display: block;
+  }
+  .displayText {
+    margin: 20px auto;
+    font-size: 2rem;
+  }
+  .nextBtnContainer {
+    margin: 0 auto;
 
+    button {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+    }
+  }
+}

@@ -10,12 +10,14 @@ const ListView = ({ list, items, onAddStep, onChecked, onPlay, onDelete }) => {
         <button className={styles.playbtn} onClick={onPlay}>
           &#x25BA;
         </button>{" "}
-        <div>to show your lists as a slideshow! </div>
+        <div>for PlayView </div>
       </div>
 
       <div className={styles.container_reciepe}>
         <Form placeholder="add tasks" onAddStep={onAddStep} />
-        <div className={styles.listContainer}>{list.name} list</div>
+        <div className={styles.pageTitle}>
+          <div className={styles.pageTitleContent}>{list.name} list</div>
+        </div>
         {/* check receipes length if it is empty show no content */}
         {items.length > 0 ? (
           <div className={styles.listContent}>
@@ -34,7 +36,7 @@ const ListView = ({ list, items, onAddStep, onChecked, onPlay, onDelete }) => {
             ))}
           </div>
         ) : (
-          <div className="textStyle">No lists available!</div>
+          <div className={styles.noListMessage}>No items available!</div>
         )}
       </div>
     </div>

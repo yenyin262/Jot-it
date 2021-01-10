@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.textStyle {
+  margin: 20px 0px;
+}
+
+.button {
+  padding: 10px;
+}
+
+.homeLink {
+  margin-top: 20px;
+  text-decoration: none;
+  color: black;
+}

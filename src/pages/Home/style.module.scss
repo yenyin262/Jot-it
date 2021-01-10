@@ -1,6 +1,7 @@
 .homeContainer {
   display: flex;
   flex-direction: column;
+  padding: 20px;
 }
 
 .block_title {
@@ -29,7 +30,7 @@
   justify-content: center;
   flex-direction: column;
   width: 100%;
-  padding: 30px;
+  padding-right: 15px;
 }
 .listContainer {
   // background-color:#9DC88D;
@@ -41,7 +42,7 @@
   // width: fit-content
 
   font-size: 1.5rem;
-  margin: 0px 0 10px;
+  margin: 10px 0 0px;
   padding: 20px;
   border-radius: 25px;
   width: 100%;
@@ -63,6 +64,7 @@
     color: white;
   }
 }
+//
 
 div.listContainer:nth-child(3n + 1) {
   background-color: #542581;
@@ -103,4 +105,10 @@ div.listContainer:nth-child(3n + 3) {
   transform: translate(50%, -50%);
   font-weight: bold;
   border: none;
+}
+
+@media (min-width: 750px) {
+  .listContainer {
+    margin: 10px auto 0px;
+  }
 }
