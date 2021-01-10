@@ -10,7 +10,7 @@ export default function AllDone({ onClick }) {
       <div className={styles.textStyle}>All Done! </div>
 
       <button className={styles.button} onClick={onClick}>
-        Return List{" "}
+        Return List
       </button>
       <Link className={styles.homeLink} to="/">
         Home

@@ -9,7 +9,7 @@ const ListView = ({ list, items, onAddStep, onChecked, onPlay, onDelete }) => {
         <div className="textClick">Click </div>
         <button className={styles.playbtn} onClick={onPlay}>
           &#x25BA;
-        </button>{" "}
+        </button>
         <div>for PlayView </div>
       </div>
 
