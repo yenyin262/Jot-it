@@ -5,9 +5,21 @@ import styles from "./style.module.scss";
 import { nanoid } from "nanoid";
 
 export default function Home({ lists, setLists }) {
+  // add function that generates the color
+  // put color into the list view templated [ id name, item]
+  // click on that button > pass in as prop
+
+  //
+
+  // const handleColors = () => {
+  // generate random number :)
+  // Math.floor(Math.random * (max-min) + min)
+  // }
+
   const [showInput, setShowInput] = useState(false);
 
   const handleAdd = (text) => {
+    // creating lists shape
     let newLists = [...lists, { id: nanoid(), name: text, items: [] }];
     setLists(newLists);
     setShowInput(false);

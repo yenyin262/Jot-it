@@ -21,6 +21,7 @@ export default function Form({ onAddStep, placeholder }) {
           type="text"
           className={styles.textStyle}
           placeholder={placeholder}
+          aria-label="field"
         />
 
         <button className={styles.addbtn}> add </button>

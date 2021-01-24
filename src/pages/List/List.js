@@ -12,6 +12,18 @@ const INITIAL = "init";
 const PLAYING = "playing";
 const ALL_DONE = "all-done";
 
+// const [colorIndex, setColorIndex] = useState(0);
+// const colors = ["#542581", "#ff414e", "#279279"];
+
+//useEffect(() => {
+//document.getElementsByClassName("pageTitleContent") = colors[colorIndex];
+//},[colorIndex]);
+
+// function handleChangeColor() {
+//   const nextIndex = colorIndex + 1 === colors.length ? 0 : colorIndex + 1;
+//   setColorIndex(nextIndex);
+//   }
+
 // function getBgColor(index) {
 //   if (3 * index + 1 === index + 1) {
 //     console.log(1);

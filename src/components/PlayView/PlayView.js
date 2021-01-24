@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from "react";
 import styles from "./style.module.scss";
 
-export default function SecondPage({ onChecked, el, index }) {
+// test if component render with el and index
+// onchecked prop is called with attribute el, index
+//queryByText
+
+export default function PlayView({ onChecked, el, index }) {
   // index is passed on to check if list is unchecked and checked
 
   const [checked, setChecked] = useState(false);

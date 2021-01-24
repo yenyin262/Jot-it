@@ -2,6 +2,13 @@ import React from "react";
 import styles from "./style.module.scss";
 import Form from "../Form/Form";
 
+// test ListView renders component with no items
+// test ListView renders component with  items
+// test onAddStep prop called with correct text attribute
+// onPlay = test that it was called once
+//  onChecked is called with two attributes(el, index)
+// onDelete is called with correct attribute (index)
+
 const ListView = ({ list, items, onAddStep, onChecked, onPlay, onDelete }) => {
   return (
     <div className={styles.container}>
@@ -14,8 +21,9 @@ const ListView = ({ list, items, onAddStep, onChecked, onPlay, onDelete }) => {
       </div>
 
       <div className={styles.container_reciepe}>
-        <Form placeholder="add tasks" onAddStep={onAddStep} />
+        <Form placeholder="add items" onAddStep={onAddStep} />
         <div className={styles.pageTitle}>
+          {/*  try to change color list.name via props */}
           <div className={styles.pageTitleContent}>{list.name} list</div>
         </div>
         {/* check receipes length if it is empty show no content */}
