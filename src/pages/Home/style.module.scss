@@ -13,16 +13,16 @@
 .btnContainer {
   display: flex;
   justify-content: center;
-  margin-top: 25px;
+  // margin-top: 25px;
 }
 .addbtn {
-  background-color: #ff8928;
-  color: black;
+  background-color: #956fa1;
+  color: white;
   font-weight: 700;
-  font-size: 2rem;
+  font-size: 1.2rem;
   padding: 5px;
   border-radius: 5px;
-  width: 50px;
+  width: 34px;
 }
 
 .mainContainer {
@@ -42,7 +42,7 @@
   // width: fit-content
 
   font-size: 1.5rem;
-  margin: 10px 0 0px;
+  margin-bottom: 14px;
   padding: 20px;
   border-radius: 25px;
   width: 100%;
@@ -67,15 +67,15 @@
 //
 
 div.listContainer:nth-child(3n + 1) {
-  background-color: #542581;
+  background-color: #f7a8b0;
 }
 
 div.listContainer:nth-child(3n + 2) {
-  background-color: #ff414e;
+  background-color: #de7684;
 }
 
 div.listContainer:nth-child(3n + 3) {
-  background-color: #279279;
+  background-color: #ac687c;
 }
 
 .listLink,
@@ -107,6 +107,23 @@ div.listContainer:nth-child(3n + 3) {
   border: none;
 }
 
+.imgContainer {
+  margin: 0 auto;
+}
+
+.listSection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-direction: row-reverse;
+  margin-bottom: 50px;
+}
+
+.img {
+  width: 250px;
+  margin-top: 40px;
+}
 @media (min-width: 750px) {
   .listContainer {
     margin: 10px auto 0px;

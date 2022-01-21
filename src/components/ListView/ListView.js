@@ -21,7 +21,11 @@ const ListView = ({ list, items, onAddStep, onChecked, onPlay, onDelete }) => {
       </div>
 
       <div className={styles.container_reciepe}>
-        <Form placeholder="add items" onAddStep={onAddStep} />
+        <Form
+          placeholder={`add to ${list.name} list`}
+          onAddStep={onAddStep}
+          name={"Add Subtask"}
+        />
         <div className={styles.pageTitle}>
           {/*  try to change color list.name via props */}
           <div className={styles.pageTitleContent}>{list.name} list</div>
@@ -44,7 +48,9 @@ const ListView = ({ list, items, onAddStep, onChecked, onPlay, onDelete }) => {
             ))}
           </div>
         ) : (
-          <div className={styles.noListMessage}>No items available!</div>
+          <div className={styles.noListMessage}>
+            No items on {list.name} list
+          </div>
         )}
       </div>
     </div>

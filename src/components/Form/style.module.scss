@@ -1,13 +1,14 @@
 .formContainer {
   display: flex;
   justify-content: center;
-  margin-top: 30px;
+  // margin-top: 30px;
   margin-bottom: 20px;
 }
 .form {
   display: flex;
   width: 100%;
   max-width: 400px;
+  height: 65px;
 }
 
 .textStyle {
@@ -15,22 +16,28 @@
   border: solid;
   margin-right: 10px;
   padding: 15px;
-  background: #fdb927;
+  // background: #fdf8ed;
+  background: #ffeec8;
+  outline: none;
   flex: 1;
 }
 
 .addbtn {
-  background-color: #ffcb0e;
+  // background-color: #58405f;
+  background-color: #956fa1;
+  color: white;
+  // background-color: #ffcb0e;
   //   color: black;
   //   font-weight: 700;
   //   font-size: 16px;
   //   margin-left: 20px;
   //   margin-top: 20px;
-  color: black;
+  // color: black;
   font-weight: 700;
-  font-size: 1.3rem;
+  font-size: 1rem;
   padding: 5px;
   border-radius: 5px;
+  max-width: 25%;
 }
 
 @media (min-width: 1024px) {

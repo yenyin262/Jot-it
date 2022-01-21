@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 40px;
 }
 
 .noListMessage {
@@ -15,10 +16,12 @@
 }
 
 .playbtn {
-  background-color: #ff8928;
+  // background-color: #ff8928;
+  background-color: #dcabdd;
   width: 50px;
   height: 25px;
   margin: 10px 0px;
+  border: 2px solid black;
 }
 
 .pageTitle {
@@ -35,7 +38,8 @@
   width: 100%;
   position: relative;
   max-width: 400px;
-  background: #fe5922;
+  // background-color: #f7a8b0;
+  background-color: #d6b7db;
   margin: 0 auto;
   text-align: center;
   //   display: flex;
@@ -69,8 +73,12 @@
   border-radius: 25px;
   padding: 15px;
   display: flex;
+  align-items: center;
+  gap: 10px;
   margin-bottom: 10px;
-  background-color: #6dd47e;
+  // background-color: #6dd47e;
+  // background-color: #f1bd78;
+  background-color: #decac9;
   position: relative;
 }
 .listText {
@@ -83,6 +91,12 @@
   max-width: 400px; // use this as it helps with mobile first styling
 }
 
+input[type="checkbox"] {
+  height: 1.3rem;
+  width: 1.3rem;
+  cursor: pointer;
+  accent-color: #9b59b6;
+}
 // .homeContainer {
 //     display:flex;
 //     flex-direction: column;

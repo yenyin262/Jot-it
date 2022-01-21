@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import Form from "../../components/Form/Form";
 import styles from "./style.module.scss";
 import { nanoid } from "nanoid";
+// import taskIcon from "../../assets/task.png";
+import taskIcon from "../../assets/lie.png";
 
 export default function Home({ lists, setLists }) {
   // add function that generates the color
@@ -32,21 +34,34 @@ export default function Home({ lists, setLists }) {
 
   return (
     <div className={styles.homeContainer}>
-      <div className={styles.block_title}>Tasks Lists</div>
+      <h3 style={{ textAlign: "center", fontSize: "18px" }}>
+        {new Date().toDateString()}
+      </h3>
+
       {!showInput && (
-        <div className={styles.btnContainer}>
-          <button onClick={() => setShowInput(true)} className={styles.addbtn}>
-            +
-          </button>
-          <span></span>
-        </div>
-      )}
-      {showInput && (
-        <div className={styles.btn_showInput}>
-          <Form onAddStep={handleAdd} placeholder="Add List" />
+        <div className={styles.listSection}>
+          <div className={styles.block_title}>Add Task</div>
+          <div className={styles.btnContainer}>
+            <button
+              onClick={() => setShowInput(true)}
+              className={styles.addbtn}
+            >
+              +
+            </button>
+            <span></span>
+          </div>
         </div>
       )}
 
+      {showInput && (
+        <div className={styles.btn_showInput}>
+          <Form
+            onAddStep={handleAdd}
+            placeholder="Untitled List"
+            name="Add Task"
+          />
+        </div>
+      )}
       <div className={styles.mainContainer}>
         {lists.map((list) => {
           return (
@@ -64,6 +79,12 @@ export default function Home({ lists, setLists }) {
           );
         })}
       </div>
+      {/* show img only when there is no list  */}
+      {lists.length < 1 && (
+        <div className={styles.imgContainer}>
+          <img src={taskIcon} alt="task" className={styles.img} />
+        </div>
+      )}
     </div>
   );
 }

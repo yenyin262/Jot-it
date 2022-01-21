@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "./style.module.scss";
 
-export default function Form({ onAddStep, placeholder }) {
+export default function Form({ onAddStep, placeholder, name }) {
   const [text, setText] = useState("");
 
   const handleAdd = (event) => {
@@ -22,9 +22,10 @@ export default function Form({ onAddStep, placeholder }) {
           className={styles.textStyle}
           placeholder={placeholder}
           aria-label="field"
+          name={name}
         />
 
-        <button className={styles.addbtn}> add </button>
+        <button className={styles.addbtn}>{name} </button>
       </form>
     </div>
   );
