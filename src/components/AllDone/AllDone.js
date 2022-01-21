@@ -2,7 +2,7 @@ import { FaCheck } from "react-icons/fa";
 import React from "react";
 import { Link } from "react-router-dom";
 import styles from "./style.module.scss";
-export default function AllDone({ onClick }) {
+export default function AllDone({ onClick, list }) {
   return (
     <div className={styles.container}>
       <FaCheck size="2rem" />
@@ -10,7 +10,7 @@ export default function AllDone({ onClick }) {
       <div className={styles.textStyle}>All Done! </div>
 
       <button className={styles.button} onClick={onClick}>
-        Return List
+        Return to {list.name}
       </button>
       <Link className={styles.homeLink} to="/">
         Home
