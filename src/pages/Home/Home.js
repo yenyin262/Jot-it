@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import Form from "../../components/Form/Form";
 import styles from "./style.module.scss";
 import { nanoid } from "nanoid";
-// import taskIcon from "../../assets/task.png";
-import taskIcon from "../../assets/lie.png";
+import taskIcon from "../../assets/task.png";
+import binIcon from "../../assets/bin.svg";
 
 export default function Home({ lists, setLists }) {
   // add function that generates the color
@@ -22,7 +22,10 @@ export default function Home({ lists, setLists }) {
 
   const handleAdd = (text) => {
     // creating lists shape
-    let newLists = [...lists, { id: nanoid(), name: text, items: [] }];
+    let newLists = [
+      ...lists,
+      { id: nanoid(), date: new Date().toDateString(), name: text, items: [] },
+    ];
     setLists(newLists);
     setShowInput(false);
   };
@@ -73,7 +76,7 @@ export default function Home({ lists, setLists }) {
                 className={styles.btn}
                 onClick={() => handleRemove(list.id)}
               >
-                X
+                <img src={binIcon} alt={"bin icon"} />
               </button>
             </div>
           );

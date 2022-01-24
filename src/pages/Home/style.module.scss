@@ -13,7 +13,6 @@
 .btnContainer {
   display: flex;
   justify-content: center;
-  // margin-top: 25px;
 }
 .addbtn {
   background-color: #956fa1;
@@ -33,14 +32,6 @@
   padding-right: 15px;
 }
 .listContainer {
-  // background-color:#9DC88D;
-
-  // font-size: 1.5rem;
-  // margin: 25px 30px 0px;
-  // padding: 40px;
-  // border-radius: 25px;
-  // width: fit-content
-
   font-size: 1.5rem;
   margin-bottom: 14px;
   padding: 20px;
@@ -52,14 +43,6 @@
 }
 
 .listContainer {
-  // &:nth-child(1){
-  //     background-color: 	#552583
-  // }
-
-  //  &:nth-child(even) {
-  //     background-color: #ff414e;
-  // }
-
   a {
     color: white;
   }
@@ -84,23 +67,10 @@ div.listContainer:nth-child(3n + 3) {
 }
 
 .btn {
-  // height: 25px;
-  // width: 25px;
-  // background-color: black;
-  // color: white;
-  // border-radius: 50%;
-  // padding: 5px;
-  // z-index: 1;
-  // position: absolute;
-  // right: 40px;
-  height: 25px;
-  width: 25px;
-  background-color: black;
-  color: white;
-  border-radius: 50%;
-  padding: 5px;
+  width: 36px;
+  background-color: transparent;
   position: absolute;
-  right: 0;
+  right: 32px;
   top: 50%;
   transform: translate(50%, -50%);
   font-weight: bold;
