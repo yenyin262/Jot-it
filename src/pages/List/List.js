@@ -142,7 +142,11 @@ function List({ lists, setLists }) {
       ...currentList,
       items: [
         ...currentList.items,
-        { id: nanoid(), text: text, checked: false },
+        {
+          id: nanoid(),
+          text: text,
+          checked: false,
+        },
       ],
     };
 
@@ -197,9 +201,8 @@ function List({ lists, setLists }) {
   // when prop use name of prop "on"
   // when naming functions use "Handle"
   return (
-    <div className="App">
+    <>
       <div className={styles.showMessage}>{message}</div>
-
       {/* {!play && !allDone && ( */}
       {pageState === INITIAL && (
         <ListView
@@ -214,15 +217,17 @@ function List({ lists, setLists }) {
       )}
       {pageState === PLAYING && current !== null && (
         // {play && current !== null && !allDone && (
-        <PlayView
-          onChecked={handleCheckedBox}
-          el={items[current]}
-          index={current}
-        />
+        <div className={styles.sis}>
+          <PlayView
+            onChecked={handleCheckedBox}
+            el={items[current]}
+            index={current}
+          />
+        </div>
       )}
 
-      {pageState === ALL_DONE && <AllDone onClick={resetList} />}
-    </div>
+      {pageState === ALL_DONE && <AllDone list={list} onClick={resetList} />}
+    </>
   );
 }
 

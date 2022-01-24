@@ -25,6 +25,16 @@
       width: 60px;
       height: 60px;
       border-radius: 50%;
+      border: none;
+      border-style: solid;
+      background-color: #f3baa0;
+      font-weight: 600;
+      letter-spacing: 3px;
+    }
+
+    button:hover {
+      transition-duration: 0.5s;
+      background: #c9b3be;
     }
   }
 }

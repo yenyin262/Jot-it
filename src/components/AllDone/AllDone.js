@@ -13,7 +13,7 @@ export default function AllDone({ onClick, list }) {
         Return to {list.name}
       </button>
       <Link className={styles.homeLink} to="/">
-        Home
+        Go to Home
       </Link>
     </div>
   );
