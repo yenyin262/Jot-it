@@ -41,11 +41,9 @@ export default function App() {
     <Router>
       {/* <div className="homeContainer"> */}
       <nav style={{ margin: "10px" }}>
-        <div>
-          <Link to="/">
-            <FaHome size="3em" color="black" />
-          </Link>
-        </div>
+        <Link to="/">
+          <FaHome size="3em" color="black" />
+        </Link>
       </nav>
       {/* </div> */}
       <Switch>

@@ -2,10 +2,16 @@
   box-sizing: border-box;
 }
 body {
-  background-color: #ffde22;
+  background-color: #f9e7df;
+  height: 100%;
 }
 .App {
   padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  flex: 1;
 }
 .textStyle {
   color: black;
@@ -15,7 +21,7 @@ body {
 @media (min-width: 700px) {
   .App {
     text-align: center;
-    border: 15px solid red;
+    /* border: 15px solid red; */
     min-height: 480px;
     padding: 20px;
     width: 100%;
@@ -25,7 +31,7 @@ body {
 @media (min-width: 1024px) {
   .App {
     text-align: center;
-    border: 25px solid red;
+    /* border: 25px solid red; */
     min-height: 500px;
     padding: 20px;
     width: 100%;
