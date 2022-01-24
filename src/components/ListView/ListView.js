@@ -12,10 +12,9 @@ import binIcon from "../../assets/bin.svg";
 const ListView = ({ list, items, onAddStep, onChecked, onPlay, onDelete }) => {
   return (
     <div className={styles.container}>
-      <div className={styles.sis}>
-        <h5>
-          Created on <span>{list.date}</span>
-        </h5>
+      <div className={styles.dateContainer}>
+        <span style={{ fontSize: "12px" }}>Date Added:</span>
+        <h5>{list.date}</h5>
       </div>
       <div className={styles.slideshow}>
         <div className="textClick">Click </div>

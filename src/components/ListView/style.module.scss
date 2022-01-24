@@ -1,5 +1,14 @@
 .container {
-  padding: 15px;
+  padding: 0 15px 15px;
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+.dateContainer {
+  display: flex;
+  width: 100%;
+  align-items: baseline;
+  gap: 5px;
 }
 .slideshow {
   display: flex;
