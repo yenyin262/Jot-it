@@ -19,7 +19,6 @@
 }
 
 .playbtn {
-  // background-color: #ff8928;
   background-color: #dcabdd;
   width: 50px;
   height: 25px;
@@ -31,40 +30,18 @@
   margin-bottom: 20px;
 }
 .pageTitleContent {
-  // margin-top: 20px;
-  // font-size: 28px;
-  // font-weight: bold;
-  //   margin: 25px 30px 0px;
   font-size: 1.5rem;
   padding: 20px;
   border-radius: 25px;
   width: 100%;
   position: relative;
   max-width: 400px;
-  // background-color: #f7a8b0;
   background-color: #d6b7db;
   margin: 0 auto;
   text-align: center;
-  //   display: flex;
-  //   justify-content: center;
-  //   flex-direction: column;
-  //   width: 100%;
-  //   padding: 30px;
 }
 
 .btn {
-  // height: 25px;
-  // width: 25px;
-  // background-color: black;
-  // color: white;
-  // border-radius: 50%;
-  // padding: -1px;
-  // right: 0;
-  // top: 50%;
-  // transform: translate(50%, -50%);
-  // font-weight: bold;
-  // border: none;
-  // position: absolute;
   width: 36px;
   background-color: transparent;
   position: absolute;
@@ -82,8 +59,6 @@
   align-items: center;
   gap: 10px;
   margin-bottom: 10px;
-  // background-color: #6dd47e;
-  // background-color: #f1bd78;
   background-color: #decac9;
   position: relative;
 }
@@ -92,7 +67,6 @@
 }
 .listContent {
   margin: 0 auto 20px;
-  // padding-right: 15px;
   text-align: justify;
   max-width: 400px; // use this as it helps with mobile first styling
 }
