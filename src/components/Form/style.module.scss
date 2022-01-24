@@ -40,5 +40,11 @@
   max-width: 25%;
 }
 
+::placeholder {
+  color: #eba40b;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
 @media (min-width: 1024px) {
 }
