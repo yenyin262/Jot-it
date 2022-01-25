@@ -2,6 +2,9 @@
   display: flex;
   flex-direction: column;
   padding: 20px;
+  max-width: 1024px;
+  margin: 0 auto;
+  width: 100%;
 }
 
 .block_title {
@@ -29,7 +32,8 @@
   justify-content: center;
   flex-direction: column;
   width: 100%;
-  padding-right: 15px;
+  align-items: center;
+  // padding-right: 15px;
 }
 .listContainer {
   font-size: 1.5rem;
