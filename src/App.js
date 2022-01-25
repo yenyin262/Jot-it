@@ -39,13 +39,11 @@ export default function App() {
 
   return (
     <Router>
-      {/* <div className="homeContainer"> */}
-      <nav style={{ margin: "10px" }}>
+      <nav style={{ padding: "10px" }}>
         <Link to="/">
           <FaHome size="3em" color="black" />
         </Link>
       </nav>
-      {/* </div> */}
       <Switch>
         <Route path="/list/:id">
           <List lists={lists} setLists={handleSetLists} />
