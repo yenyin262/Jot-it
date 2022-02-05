@@ -38,7 +38,7 @@ export default function App() {
   }
 
   return (
-    <Router>
+    <Router basename="/Jot-it">
       <nav style={{ padding: "10px" }}>
         <Link to="/">
           <FaHome size="3em" color="black" />

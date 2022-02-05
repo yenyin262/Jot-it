@@ -2,6 +2,7 @@
   "name": "my-receipe",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://yenyin262.github.io/Jot-it/",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^11.2.3",
