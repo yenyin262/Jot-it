@@ -38,7 +38,7 @@ export default function App() {
   }
 
   return (
-    <Router basename={"/"}>
+    <Router basename={process.env.REACT_APP_API_URL}>
       <nav style={{ padding: "10px" }}>
         <Link to="/">
           <FaHome size="3em" color="black" />
@@ -48,7 +48,6 @@ export default function App() {
         <Route path="/list/:id">
           <List lists={lists} setLists={handleSetLists} />
         </Route>
-
         <Route exact path="/">
           <Home lists={lists} setLists={handleSetLists} />
         </Route>
