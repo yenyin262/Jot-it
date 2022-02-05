@@ -21,7 +21,7 @@ const ListView = ({ list, items, onAddStep, onChecked, onPlay, onDelete }) => {
         <button className={styles.playbtn} onClick={onPlay}>
           &#x25BA;
         </button>
-        <div>for PlayView </div>
+        <div>for FullScreen View </div>
       </div>
       <div className={styles.container_reciepe}>
         <Form

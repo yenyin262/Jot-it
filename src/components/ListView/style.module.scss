@@ -8,6 +8,7 @@
   display: flex;
   width: 100%;
   align-items: baseline;
+  justify-content: center;
   gap: 5px;
 }
 .slideshow {
@@ -15,6 +16,7 @@
   flex-direction: column;
   align-items: center;
   margin-bottom: 40px;
+  gap: 15px;
 }
 
 .noListMessage {
@@ -28,11 +30,17 @@
 }
 
 .playbtn {
-  background-color: #dcabdd;
-  width: 50px;
-  height: 25px;
-  margin: 10px 0px;
+  // background-color: #dcabdd;
+  // width: 50px;
+  // height: 25px;
+  // margin: 10px 0px;
+  // border: 2px solid black;
   border: 2px solid black;
+  background-color: #dcabdd;
+  color: black;
+  padding: 15px;
+  border-radius: 5px;
+  width: 50px;
 }
 
 .pageTitle {
@@ -96,6 +104,7 @@ input[type="checkbox"] {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    gap: 0;
   }
 
   .playbtn {
