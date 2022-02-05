@@ -2,11 +2,12 @@
   "name": "my-receipe",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://yenyin262.github.io/Jot-it/",
+  "homepage": ".",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^11.2.3",
     "@testing-library/user-event": "^7.1.2",
+    "env-cmd": "^10.1.0",
     "nanoid": "^3.1.20",
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
@@ -16,8 +17,8 @@
     "react-scripts": "5.0.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "BUILD_PATH='./docs' react-scripts build",
+    "start": "env-cmd -f .env.local react-scripts start",
+    "build": "env-cmd -f .env.prod react-scripts build",
     "test": "react-scripts test --env=jest-environment-jsdom-sixteen",
     "eject": "react-scripts eject"
   },
