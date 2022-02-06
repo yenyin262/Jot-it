@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/Jot-it/static/css/main.2854d99e.css",
+    "main.css": "/Jot-it/static/css/main.16b1c504.css",
     "main.js": "/Jot-it/static/js/main.fd1a48d0.js",
     "static/media/task.png": "/Jot-it/static/media/task.0ff88f8237f2846e5373.png",
     "index.html": "/Jot-it/index.html",
     "static/media/bin.svg": "/Jot-it/static/media/bin.ad49e364bcc2e4ab97aec27bbb11ab01.svg",
-    "main.2854d99e.css.map": "/Jot-it/static/css/main.2854d99e.css.map",
+    "main.16b1c504.css.map": "/Jot-it/static/css/main.16b1c504.css.map",
     "main.fd1a48d0.js.map": "/Jot-it/static/js/main.fd1a48d0.js.map"
   },
   "entrypoints": [
-    "static/css/main.2854d99e.css",
+    "static/css/main.16b1c504.css",
     "static/js/main.fd1a48d0.js"
   ]
 }
