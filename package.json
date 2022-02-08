@@ -18,7 +18,8 @@
   },
   "scripts": {
     "start": "env-cmd -f .env.local react-scripts start",
-    "build": "env-cmd -f .env.prod react-scripts build",
+    "build": "env-cmd -f .env.netlify react-scripts build",
+    "build:gh-pages": "env-cmd -f .env.prod react-scripts build",
     "test": "react-scripts test --env=jest-environment-jsdom-sixteen",
     "eject": "react-scripts eject"
   },
